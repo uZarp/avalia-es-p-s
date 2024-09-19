@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/scripts.js" defer></script>
+  <title>ERP Sistema - Dashboard</title>
+  <nav>
+    <div id="nav-logo">
+      <h2>ERP Sistema</h2>
+    </div>
+    <div id="nav-menu">
+      <a href="#" id="dashboard-link">Dashboard</a>
+      <a href="#" id="relatorios-link">Relatórios</a>
+      <a href="#" id="configuracoes-link">Configurações</a>
+    </div>
+    <!-- <div id="user-icon">
+      <img src="" alt="Usuário" width="30" height="30">
+    </div> -->
+    <div id="notification-icon">
+      <!-- <img src="bell-icon.png" alt="Notificações" width="30" height="30"> -->
+       <p>Notificações</p>
+      <div id="notification-count">3</div> <!-- Contador de notificações -->
+    </div>
+    <!-- Notificação do Sino -->
+<div id="notification-popup">
+  <p>Você tem uma nova pesquisa de satisfação. Clique para responder.</p>
+  <button id="open-survey">Responder</button>
+</div>
+
+<!-- Formulário de Pesquisa -->
+<div id="survey-form">
+  <h2>Pesquisa de Satisfação</h2>
+  <form id="feedback-form">
+    <div class="form-field">
+        <label for="cnpj">CNPJ:</label><br>
+        <input type="text" id="cnpj" name="cnpj" maxlength="14" required><br>
+        <span id="cnpj-error" class="error-message"></span>
+    </div>
+
+    <div class="form-field">
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name" maxlength="40" required><br>
+        <span id="name-error" class="error-message"></span>
+    </div>
+
+    <div class="form-field">
+        <label for="phone">Telefone:</label><br>
+        <input type="text" id="phone" name="phone" maxlength="11" required><br>
+        <span id="phone-error" class="error-message"></span>
+    </div>
+
+    <div class="form-field">
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" maxlength="50" required><br>
+        <span id="email-error" class="error-message"></span>
+    </div>
+
+    <div class="form-field">
+      <label>Avaliação:</label>
+      <label for="rating">Avaliação:</label><br>
+        <div class="stars">
+            <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        </div><br>
+
+        <label for="feedback">Comentários:</label><br>
+        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br><br>
+
+    <button type="submit">Enviar Avaliação</button>
+</form>
+</div>
+  </nav>
+
+  </body>
+
+</html>

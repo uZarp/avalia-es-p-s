@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #181e24;
+}
+
+nav {
+  background-color: #2C3E50;
+  color: #ecf0f1;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav-menu {
+  display: flex;
+  gap: 15px;
+}
+
+#nav-menu a {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#nav-menu a:hover {
+  background-color: #34495e;
+  border-radius: 5px;
+}
+
+#search-bar {
+  margin-right: auto;
+  margin-left: 20px;
+}
+
+#search-bar input {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+#user-icon, #notification-icon {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+#notification-icon {
+  position: relative;
+}
+
+#notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+#notification-popup {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f1c40f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#survey-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#survey-form h2, label{
+  color: #000;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.stars input {
+  display: none;
+}
+.stars label {
+  font-size: 20px;
+  cursor: pointer;
+}
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+  color: #f1c40f;
+}
+
+/* Mensagem de erro dos campos */
+.form-field {
+  margin-bottom: 20px;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
