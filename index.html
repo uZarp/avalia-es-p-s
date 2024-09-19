@@ -25,18 +25,21 @@
       <div id="notification-count">3</div> <!-- Contador de notificações -->
     </div>
     <!-- Notificação do Sino -->
-<div id="notification-popup">
-  <p>Você tem uma nova pesquisa de satisfação. Clique para responder.</p>
-  <button id="open-survey">Responder</button>
-</div>
+    <div id="notification-popup">
+      <p>Você tem uma nova pesquisa de satisfação. Clique para responder.</p>
+      <span id="close-notification">&times;</span>
+      <button id="open-survey">Responder</button>
+      <button id="remind-later">Lembrar novamente mais tarde</button> <!-- Botão de lembrar mais tarde -->
+    </div>
 
 <!-- Formulário de Pesquisa -->
 <div id="survey-form">
   <h2>Pesquisa de Satisfação</h2>
   <form id="feedback-form">
     <div class="form-field">
-        <label for="cnpj">CNPJ:</label><br>
-        <input type="text" id="cnpj" name="cnpj" maxlength="14" required><br>
+      <label for="cnpj">CNPJ:</label>
+      <input type="text" id="cnpj" name="cnpj" maxlength="18" placeholder="00.000.000/0000-00" required>
+      <span id="cnpj-error" style="color: red;"></span>
         <span id="cnpj-error" class="error-message"></span>
     </div>
 
