@@ -54,6 +54,8 @@ document.getElementById('remind-later').addEventListener('click', function () {
   setTimeout(showSurveyNotification, remindLaterTime);
 });
 
+// Funcão do botão X para fechar o campo de pesquisa
+
 document.getElementById('close-notification').addEventListener('click', function () {
   document.getElementById('notification-popup').style.display = 'none';
 });
@@ -109,6 +111,7 @@ document.getElementById('name').addEventListener('input', function (e) {
 // Validação do campo Telefone
 document.getElementById('phone').addEventListener('input', function (e) {
   this.value = this.value.replace(/\D/g, ''); // Permitir apenas números
+  this.value = formatPhone(this.value); // Formata o número durante a digitação
 });
 
 // Função para formatar Telefone
@@ -122,22 +125,50 @@ function formatPhone(phone) {
 
 // Função para validar Telefone
 function validatePhone(phone) {
-  const regex = /^\d{11}$/; // 2 dígitos DDD + 9 dígitos do número
+  const regex = /^\(\d{2}\) \d{5}-\d{4}$/; // Valida no formato (XX) XXXXX-XXXX
   return regex.test(phone);
 }
 
+// Validação do campo Telefone ao perder o foco (quando o usuário sai do campo)
 document.getElementById('phone').addEventListener('blur', function (e) {
   const phone = this.value;
   if (!validatePhone(phone)) {
-    document.getElementById('phone-error').textContent = "Telefone inválido! Insira o DDD + 9 dígitos.";
+    document.getElementById('phone-error').textContent = "Telefone inválido! Insira no formato (XX) XXXXX-XXXX.";
   } else {
     document.getElementById('phone-error').textContent = "";
-    this.value = formatPhone(phone); // Formatar Telefone
   }
 });
 
+// Aplicar a máscara ao entrar no campo Telefone, mantendo o formato correto
+document.getElementById('phone').addEventListener('focus', function (e) {
+  this.value = formatPhone(this.value);
+});
+
+// Formatar e validar o telefone ao carregar a página
+window.onload = function () {
+  formatAndValidatePhoneOnLoad();
+};
+
 // Validação do campo Email
-document.getElementById('email').addEventListener('input', function (e) {
+// Função para validar o e-mail
+function validateEmail(email) {
+  // Regex para verificar se o e-mail possui o formato básico com "@" e um domínio
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+// Validação do campo E-mail ao perder o foco (quando o usuário sai do campo)
+document.getElementById('email').addEventListener('blur', function(e) {
+  const email = this.value;
+  if (!validateEmail(email)) {
+    document.getElementById('email-error').textContent = "Email inválido! Insira um email no formato correto (exemplo@dominio.com).";
+  } else {
+    document.getElementById('email-error').textContent = "";
+  }
+});
+
+// Validação ao digitar no campo de e-mail
+document.getElementById('email').addEventListener('input', function(e) {
   if (this.value.length > 50) {
     document.getElementById('email-error').textContent = "Email não pode exceder 50 caracteres.";
   } else {
