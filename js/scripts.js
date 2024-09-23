@@ -1,13 +1,25 @@
-// Função para simular a chegada de uma nova notificação de pesquisa de satisfação
 function showSurveyNotification() {
   document.getElementById('notification-popup').style.display = 'block';
 }
 
-// Função para abrir o formulário de pesquisa
+// Função para abrir o formulário de pesquisa quando o usuário clicar na notificação
 document.getElementById('open-survey').addEventListener('click', function() {
   document.getElementById('notification-popup').style.display = 'none';
   document.getElementById('survey-form').style.display = 'block';
 });
+
+// Função para abrir o card de notificação ao clicar no botão "Notificações"
+document.getElementById('notification-icon').addEventListener('click', function() {
+  document.getElementById('notification-popup').style.display = 'block';
+});
+
+// Função para fechar a notificação sem responder
+document.getElementById('close-notification').addEventListener('click', function() {
+  document.getElementById('notification-popup').style.display = 'none';
+});
+
+// Exibir a notificação automaticamente após 10 segundos ao carregar a página
+setTimeout(showSurveyNotification, 10000);
 
 // Função para lidar com o envio do formulário
 document.getElementById('feedback-form').addEventListener('submit', function(event) {
